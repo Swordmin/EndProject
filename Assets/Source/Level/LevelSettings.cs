@@ -38,13 +38,13 @@ public class LevelSettings : MonoBehaviour
         StartCoroutine(Timer());
         if (!Settings)
             Settings = this;
-        if(SaveLevelEngine.SaveEngine)
+        if (SaveLevelEngine.SaveEngine)
             _thisLevel = SaveLevelEngine.SaveEngine.FindLevelByID(_levelId);
         else
             Debug.LogError("SFS ERROR: GlobalResoures is not found");
     }
 
-    public void TakeCoin(float count) 
+    public void TakeCoin(float count)
     {
         if (count < 0)
         {
@@ -65,6 +65,7 @@ public class LevelSettings : MonoBehaviour
             _stars[1] = true;
         if (_playerHealth.IsFullHealth())
             _stars[2] = true;
+
         if (!_thisLevel.Done)
         {
             _thisLevel.Done = true;
@@ -83,13 +84,13 @@ public class LevelSettings : MonoBehaviour
         SaveLevelEngine.SaveEngine.Save();
     }
 
-    public void StopTimer() 
+    public void StopTimer()
     {
         StopCoroutine("Timer");
     }
-    public void Pause(out bool isPause) 
+    public void Pause(out bool isPause)
     {
-        if(_isPause)
+        if (_isPause)
         {
             PauseObjects(false);
             _isPause = false;
@@ -102,7 +103,7 @@ public class LevelSettings : MonoBehaviour
         isPause = _isPause;
     }
 
-    private void PauseObjects(bool isPause) 
+    private void PauseObjects(bool isPause)
     {
         foreach (IPause pauseObject in Pauses)
         {
@@ -113,11 +114,11 @@ public class LevelSettings : MonoBehaviour
         }
     }
 
-    private IEnumerator Timer() 
+    private IEnumerator Timer()
     {
         int minute = 00;
         int seconts = 00;
-        while (true) 
+        while (true)
         {
             yield return new WaitForSeconds(1);
             if (!_isPause)
@@ -126,7 +127,7 @@ public class LevelSettings : MonoBehaviour
                 seconts++;
             }
             _textTime.text = $"{minute}:{seconts}";
-            if(seconts == 60)
+            if (seconts == 60)
             {
                 minute++;
                 seconts = 0;
@@ -135,5 +136,3 @@ public class LevelSettings : MonoBehaviour
         }
     }
 }
-
-

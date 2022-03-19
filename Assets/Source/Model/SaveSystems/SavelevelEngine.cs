@@ -9,7 +9,7 @@ public class SaveLevelEngine : MonoBehaviour, ISaveSystem
 
     [SerializeField] private SaveData _saveData = new SaveData();
     [SerializeField] private ISaveSystem _core;
-    [SerializeField] private readonly string _filePath = Application.persistentDataPath + "/Save.json";
+    [SerializeField] private string _filePath;
 
     public SaveData Load()
     {
@@ -26,6 +26,7 @@ public class SaveLevelEngine : MonoBehaviour, ISaveSystem
         DontDestroyOnLoad(gameObject);
         if (!SaveEngine)
             SaveEngine = this;
+        _filePath = Application.persistentDataPath + "/Save.json";
         _core = new SaveSystemJson(_filePath);
     }
 

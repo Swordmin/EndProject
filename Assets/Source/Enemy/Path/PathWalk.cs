@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PathWalk : MonoBehaviour, IPause
@@ -6,6 +7,8 @@ public class PathWalk : MonoBehaviour, IPause
 
     [SerializeField] private List<PathPoint> _points;
     [SerializeField] private Transform _currentPoint;
+    [SerializeField] private Vector2 _sizeColliderPoint;
+
     [SerializeField] private Rigidbody2D _rigidbody;
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private float _speed;
@@ -22,11 +25,11 @@ public class PathWalk : MonoBehaviour, IPause
     private void Start()
     {
         Init();
-        _currentPoint = _points[0].Point;
+        _currentPoint = _points[0].transform;
         _speed = _points[0].Speed;
     }
 
-    private void Update() 
+    private void Update()
     {
         if (Vector2.Distance(transform.position, _currentPoint.position) > 0.01f)
         {
@@ -34,7 +37,7 @@ public class PathWalk : MonoBehaviour, IPause
             _rigidbody.velocity = direction.normalized * _speed;
         }
         else
-            GetNextPoint();
+            TakeNextPoint();
 
         if (_isPause)
             _rigidbody.velocity = Vector2.zero;
@@ -46,44 +49,20 @@ public class PathWalk : MonoBehaviour, IPause
         else
             _sprite.flipX = true;
     }
-
-    private void OnDrawGizmos()
-    {
-        foreach(PathPoint point in _points) 
-        {
-            if (_currentPoint == transform)
-                Gizmos.color = Color.red;
-            else
-                Gizmos.color = Color.green;
-            Gizmos.DrawSphere(point.Point.position, 0.04f);
-        }
-    }
-
-    private void GetNextPoint()
-    {
-        for (int i = 0; i < _points.Count; i++)
-        {
-            if (_points[i].Point == _currentPoint)
-                if (i != _points.Count-1)
-                {
-                    _currentPoint = _points[i + 1].Point;
-                    _speed = _points[i + 1].Speed;
-                    break;
-                }
-                else
-                {
-                    _currentPoint = _points[0].Point;
-                    _speed = _points[0].Speed;
-                    break;
-                }
-        }
-    }
-
     public void Init()
     {
         LevelSettings.Settings.Pauses.Add(this);
     }
 
+    public void CreatePoints()
+    {
+        foreach (PathPoint point in _points)
+        {
+            point.CreateBoxCollider(_sizeColliderPoint);
+        }
+    }
+
+    #region IPause
     public void Pause()
     {
         _isPause = true;
@@ -93,11 +72,55 @@ public class PathWalk : MonoBehaviour, IPause
     {
         _isPause = false;
     }
-}
+    #endregion
 
-[System.Serializable]
-public class PathPoint
-{
-    public Transform Point;
-    public float Speed;
+    private void OnDrawGizmos()
+    {
+        foreach (PathPoint point in _points)
+        {
+            if (point == null)
+                return;
+            if (_currentPoint == transform)
+                Gizmos.color = Color.red;
+            else
+                Gizmos.color = Color.green;
+            Gizmos.DrawCube(point.transform.position, point.ColliderSize);
+
+            if (point && _points[0])
+                if (point != _points[_points.Count - 1])
+                    Gizmos.DrawLine(point.transform.position, _points[_points.IndexOf(point) + 1].transform.position);
+                else
+                    Gizmos.DrawLine(point.transform.position, _points[0].transform.position);
+        }
+    }
+
+    private void TakeNextPoint()
+    {
+        for (int i = 0; i < _points.Count; i++)
+        {
+            if (_points[i].transform == _currentPoint)
+                if (i != _points.Count - 1)
+                {
+                    _currentPoint = _points[i + 1].transform;
+                    _speed = _points[i + 1].Speed;
+                    break;
+                }
+                else
+                {
+                    _currentPoint = _points[0].transform;
+                    _speed = _points[0].Speed;
+                    break;
+                }
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent(out PathPoint point))
+        {
+            if (point == _currentPoint)
+                TakeNextPoint();
+        }
+    }
+
 }
