@@ -41,7 +41,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4218196732219881062}
-  m_Layer: 0
+  - component: {fileID: 1647715123109915753}
+  m_Layer: 12
   m_Name: GameObject (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,6 +63,19 @@ Transform:
   m_Father: {fileID: 1785949534741987763}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1647715123109915753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3598453947636980189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42595f4b545fa1440aaf0adfafb91471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
 --- !u!1 &3940402366190339037
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,11 +209,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points:
-  - {fileID: 6261309199144075132}
-  - {fileID: 4218196732219881062}
+  - {fileID: 0}
+  - {fileID: 0}
   _currentPoint: {fileID: 6261309199144075132}
+  _sizeColliderPoint: {x: 0, y: 0}
   _rigidbody: {fileID: 0}
+  _sprite: {fileID: 0}
   _speed: 0.5
+  _miror: 0
+  _isPause: 0
 --- !u!50 &155385728020069583
 Rigidbody2D:
   serializedVersion: 4
@@ -294,6 +312,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6261309199144075132}
+  - component: {fileID: 6413021653514468192}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -315,6 +334,19 @@ Transform:
   m_Father: {fileID: 1785949534741987763}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6413021653514468192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8554177651542993151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42595f4b545fa1440aaf0adfafb91471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
 --- !u!1 &8882818560566255799
 GameObject:
   m_ObjectHideFlags: 0

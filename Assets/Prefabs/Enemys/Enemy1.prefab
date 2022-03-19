@@ -366,11 +366,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points:
-  - Point: {fileID: 0}
-    Speed: 0
-  - Point: {fileID: 0}
-    Speed: 0
+  - {fileID: 0}
+  - {fileID: 0}
   _currentPoint: {fileID: 0}
+  _sizeColliderPoint: {x: 0, y: 0}
   _rigidbody: {fileID: 0}
   _sprite: {fileID: 0}
   _speed: 1.06
@@ -553,7 +552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8844198933634187518}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

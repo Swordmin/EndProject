@@ -333,6 +333,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1221840519}
   - component: {fileID: 1221840518}
+  - component: {fileID: 1221840520}
   m_Layer: 0
   m_Name: SaveSystem
   m_TagString: Untagged
@@ -354,30 +355,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _coins: 0
   _stars: 0
-  _saveData:
-    Levels:
-    - Id: Forest_1
-      SceneId: Forest_1
-      BestTime: 0
-      StarsNeed: 0
-      Stars: 000000
-      Can: 1
-      Done: 0
-    - Id: Forest_2
-      SceneId: Forest_2
-      BestTime: 0
-      StarsNeed: 0
-      Stars: 000000
-      Can: 0
-      Done: 0
-    - Id: Forest_3
-      SceneId: Forest_3
-      BestTime: 0
-      StarsNeed: 0
-      Stars: 000000
-      Can: 0
-      Done: 0
-    Coins: 0
 --- !u!4 &1221840519
 Transform:
   m_ObjectHideFlags: 0
@@ -392,6 +369,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1221840520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221840517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e56b3922d66c4843bd408a10859d461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _saveData:
+    Levels:
+    - Id: Forest_1
+      SceneId: Forest_1
+      BestTime: 0
+      StarsNeed: 0
+      Stars: 
+      Can: 1
+      Done: 0
+    - Id: Forest_2
+      SceneId: Forest_2
+      BestTime: 0
+      StarsNeed: 0
+      Stars: 
+      Can: 0
+      Done: 0
+    - Id: Forest_2
+      SceneId: 
+      BestTime: 0
+      StarsNeed: 0
+      Stars: 
+      Can: 0
+      Done: 0
+    Coins: 0
+    Stars: 0
+  _filePath: 
 --- !u!1 &1531901156
 GameObject:
   m_ObjectHideFlags: 0
