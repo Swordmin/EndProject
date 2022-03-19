@@ -61,9 +61,14 @@
     <Compile Include="Assets\Source\Level\WinnnerMenu.cs" />
     <Compile Include="Assets\Source\Level\LevelSettings.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
+    <Compile Include="Assets\Source\Model\SaveSystems\SaveLevelEngine.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\Source\Model\SaveSystems\ISaveSystem.cs" />
     <Compile Include="Assets\Source\Camera\CameraShake.cs" />
+<<<<<<< HEAD
+=======
+    <Compile Include="Assets\Source\Model\SaveSystems\SaveSystemJson.cs" />
+>>>>>>> RefactoringPathWalk
     <Compile Include="Assets\Source\Manager\SceneManagment.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Source\Enemy\Enemy.cs" />
@@ -77,7 +82,11 @@
     <Compile Include="Assets\Source\Manager\IPause.cs" />
     <Compile Include="Assets\Source\Object\Bullet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Source\Extension\Rigidbody2DExt.cs" />
+=======
+    <Compile Include="Assets\Source\Model\Extensions\Rigidbody2DExt.cs" />
+>>>>>>> RefactoringPathWalk
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Source\Environment\PlatformParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
@@ -125,8 +134,12 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\Source\Object\BulletInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="Assets\Source\Model\SaveSystems\SaveSystemJson.cs" />
     <Compile Include="Assets\Source\Model\SaveSystems\SavelevelEngine.cs" />
+=======
+    <Compile Include="Assets\Source\Enemy\Path\PathPoint.cs" />
+>>>>>>> RefactoringPathWalk
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

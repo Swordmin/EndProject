@@ -104,4 +104,8 @@ public class Level
     public bool[] Stars = new bool[3];
     public bool Can;
     public bool Done;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> RefactoringPathWalk

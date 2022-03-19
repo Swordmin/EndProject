@@ -60,6 +60,7 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Editor\JoystickEditor.cs" />
     <Compile Include="Assets\Editor\EssenceViewer.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Editor\VariableJoystickEditor.cs" />
+    <Compile Include="Assets\Editor\PathWalkViewer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

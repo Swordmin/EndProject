@@ -38,7 +38,7 @@ public class LevelSettings : MonoBehaviour
         StartCoroutine(Timer());
         if (!Settings)
             Settings = this;
-        if (SaveLevelEngine.SaveEngine)
+        if(SaveLevelEngine.SaveEngine)
             _thisLevel = SaveLevelEngine.SaveEngine.FindLevelByID(_levelId);
         else
             Debug.LogError("SFS ERROR: GlobalResoures is not found");
@@ -84,7 +84,11 @@ public class LevelSettings : MonoBehaviour
         SaveLevelEngine.SaveEngine.Save();
     }
 
+<<<<<<< HEAD:Assets/Source/Level/LevelSettings.cs
     public void StopTimer()
+=======
+    public void StopTimer() 
+>>>>>>> RefactoringPathWalk:Assets/Scripts/Level/LevelSettings.cs
     {
         StopCoroutine("Timer");
     }
