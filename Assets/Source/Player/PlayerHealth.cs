@@ -16,11 +16,19 @@ public class PlayerHealth : Essence
         _animator = GetComponent<PlayerAnimatorController>();
     }
 
+    public override void TakeDamage(float damage)
+    {
+        GetComponent<FlyingTextEngine>().CreateText(transform.position,$"-{damage}", null);
+        base.TakeDamage(damage);
+    }
+
     public override void Die() 
     {
         base.Die();
         Destroy(gameObject);    
     }
+
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.TryGetComponent(out Enemy enemy) && _canTakeDamage) 

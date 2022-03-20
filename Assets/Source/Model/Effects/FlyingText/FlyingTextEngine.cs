@@ -16,6 +16,11 @@ public class FlyingTextEngine : MonoBehaviour
     {
         FlyingText flyingText = Instantiate(_flyingText, postition, Quaternion.identity, _parentFlyingText);
         flyingText.Initialized(text, _color);
+    }   
+    public void CreateText(Vector2 postition, string text, Transform parent)
+    {
+        FlyingText flyingText = Instantiate(_flyingText, postition, Quaternion.identity, parent);
+        flyingText.Initialized(text, _color);
     }
     public void CreateText(Vector2 postition)
     {
