@@ -28,7 +28,7 @@ public class PanelMovement : MonoBehaviour
         if (_isOpen)
         {
 
-            _isOpen = true;
+            _isOpen = false;
             _animator.Play("Close");
 
         }

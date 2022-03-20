@@ -388,17 +388,17 @@ MonoBehaviour:
       BestTime: 0
       StarsNeed: 0
       Stars: 
-      Can: 1
+      Can: 0
       Done: 0
     - Id: Forest_2
       SceneId: Forest_2
       BestTime: 0
       StarsNeed: 0
       Stars: 
-      Can: 0
+      Can: 1
       Done: 0
-    - Id: Forest_2
-      SceneId: 
+    - Id: Forest_3
+      SceneId: Forest_3
       BestTime: 0
       StarsNeed: 0
       Stars: 

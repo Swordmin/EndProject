@@ -5,7 +5,8 @@ public enum PanelType
 {
     Pause,
     Win,
-    Defeat
+    Defeat,
+    StartScreen
 }
 
 public class PanelsSwitcher : MonoBehaviour
@@ -19,10 +20,6 @@ public class PanelsSwitcher : MonoBehaviour
     {
         if (!Switcher)
             Switcher = this;
-    }
-
-    public void Update()
-    {
     }
 
     public void Open(PanelType type) 
@@ -39,13 +36,12 @@ public class PanelsSwitcher : MonoBehaviour
 
     public void Close(PanelType type)
     {
+        foreach (PanelMovement panel in _panels)
         {
-            foreach (PanelMovement panel in _panels)
-            {
-                if (panel.Type == type)
-                    panel.Close();
-            }
+            if (panel.Type == type)
+                panel.Close();
         }
+        
     }
 
 }

@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Close()
     {
+
         PanelsSwitcher.Switcher.Close(GetComponent<PanelMovement>().Type);
     }
 

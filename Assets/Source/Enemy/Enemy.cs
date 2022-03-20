@@ -8,11 +8,19 @@ public class Enemy : Essence
     [SerializeField] private float _coinCount;
     [SerializeField] private float _damage;
     [SerializeField] private PathWalk _pathWalk;
+    [SerializeField] private FlyingTextEngine _flyingTextEngine;
     public float Damage => _damage;
+
+    private void Awake()
+    {
+        if (TryGetComponent(out FlyingTextEngine flyingTextEngine))
+            _flyingTextEngine = flyingTextEngine;
+    }
 
     public override void TakeDamage(float damage)
     {
         _animator.Play("Damage");
+        _flyingTextEngine.CreateText(transform.position, $"-{damage}");
         base.TakeDamage(damage);
     }
 
