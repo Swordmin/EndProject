@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{26625F62-B3E0-7782-ABE1-78A8D99E7F77}</ProjectGuid>
+    <ProjectGuid>{582B6474-2C34-26D2-3556-0F06080C4C98}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,14 +61,12 @@
     <Compile Include="Assets\Source\Level\WinnnerMenu.cs" />
     <Compile Include="Assets\Source\Level\LevelSettings.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
-    <Compile Include="Assets\Source\Model\SaveSystems\SaveLevelEngine.cs" />
+    <Compile Include="Assets\Source\Model\PanelMovement.cs" />
+    <Compile Include="Assets\Source\Model\SaveSystems\SavelevelEngine.cs" />
     <Compile Include="Assets\Joystick Pack\Examples\JoystickSetterExample.cs" />
     <Compile Include="Assets\Source\Model\SaveSystems\ISaveSystem.cs" />
     <Compile Include="Assets\Source\Camera\CameraShake.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="Assets\Source\Model\SaveSystems\SaveSystemJson.cs" />
->>>>>>> RefactoringPathWalk
     <Compile Include="Assets\Source\Manager\SceneManagment.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Source\Enemy\Enemy.cs" />
@@ -82,18 +80,15 @@
     <Compile Include="Assets\Source\Manager\IPause.cs" />
     <Compile Include="Assets\Source\Object\Bullet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
-<<<<<<< HEAD
-    <Compile Include="Assets\Source\Extension\Rigidbody2DExt.cs" />
-=======
-    <Compile Include="Assets\Source\Model\Extensions\Rigidbody2DExt.cs" />
->>>>>>> RefactoringPathWalk
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\Source\Environment\PlatformParent.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ChatController.cs" />
+    <Compile Include="Assets\Source\Extension\Rigidbody2DExt.cs" />
     <Compile Include="Assets\Source\Environment\PlatformMovement.cs" />
     <Compile Include="Assets\Source\Object\Essence.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_ExampleScript_01.cs" />
     <Compile Include="Assets\Source\Level\LevelListItem.cs" />
+    <Compile Include="Assets\Source\Model\PanelsSwitcher.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Source\Resources\Coin.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
@@ -108,6 +103,7 @@
     <Compile Include="Assets\Source\Level\PauseMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\Source\Player\HealthParameters.cs" />
+    <Compile Include="Assets\Source\Enemy\Path\PathPoint.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
@@ -134,12 +130,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\Source\Object\BulletInfo.cs" />
-<<<<<<< HEAD
-    <Compile Include="Assets\Source\Model\SaveSystems\SaveSystemJson.cs" />
-    <Compile Include="Assets\Source\Model\SaveSystems\SavelevelEngine.cs" />
-=======
-    <Compile Include="Assets\Source\Enemy\Path\PathPoint.cs" />
->>>>>>> RefactoringPathWalk
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -796,19 +786,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Zenject-Editor.csproj">
-      <Project>{2F5E4259-6666-B523-FE4F-2FCD5CDAE536}</Project>
+      <Project>{2416C63F-42F4-7C48-F901-73ED6A7E5DAF}</Project>
       <Name>Zenject-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-ReflectionBaking-Editor.csproj">
-      <Project>{F7EE7FFF-0D9C-799A-4181-61E9AAA84BC8}</Project>
+      <Project>{4807D96E-B1D9-DD42-3461-BB96C549E741}</Project>
       <Name>Zenject-ReflectionBaking-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject-PoolMonitor-Editor.csproj">
-      <Project>{981CB950-FD19-7F5B-8355-B1B903829A4B}</Project>
+      <Project>{BC8B0F36-60B5-F8B6-E070-64C156E80B3F}</Project>
       <Name>Zenject-PoolMonitor-Editor</Name>
     </ProjectReference>
     <ProjectReference Include="Zenject.csproj">
-      <Project>{F8FF1B83-6CD1-3CE2-6D64-1F434759B757}</Project>
+      <Project>{1A7FEBFA-88A9-4385-D77F-A0502D1A6B5E}</Project>
       <Name>Zenject</Name>
     </ProjectReference>
   </ItemGroup>

@@ -3,18 +3,28 @@
 public class PauseMenu : MonoBehaviour
 {
 
-    [SerializeField] private Animator _animator;
     [SerializeField] private bool _isPause;
+
+    public void Close()
+    {
+        PanelsSwitcher.Switcher.Close(GetComponent<PanelMovement>().Type);
+    }
+
+    public void Open()
+    {
+        PanelsSwitcher.Switcher.Open(GetComponent<PanelMovement>().Type);
+    }
+
     public void Pause()
     {
         LevelSettings.Settings.Pause(out _isPause);
         if (_isPause) 
         {
-            _animator.Play("Show");
+            Open();
         }
         else
         {
-            _animator.Play("Hide");
+            Close();
         }
     }
 
