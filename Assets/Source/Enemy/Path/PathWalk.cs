@@ -86,13 +86,8 @@ public class PathWalk : MonoBehaviour, IPause
                 Gizmos.color = Color.green;
             Gizmos.DrawCube(point.transform.position, point.ColliderSize);
 
-<<<<<<< HEAD:Assets/Source/Enemy/Path/PathWalk.cs
-            if (point && _points[0])
-                if (point != _points[_points.Count - 1])
-=======
             if(point && _points[0])
                 if (point != _points[_points.Count-1])
->>>>>>> RefactoringPathWalk:Assets/Scripts/Enemy/Path/PathWalk.cs
                     Gizmos.DrawLine(point.transform.position, _points[_points.IndexOf(point) + 1].transform.position);
                 else
                     Gizmos.DrawLine(point.transform.position, _points[0].transform.position);
@@ -104,11 +99,7 @@ public class PathWalk : MonoBehaviour, IPause
         for (int i = 0; i < _points.Count; i++)
         {
             if (_points[i].transform == _currentPoint)
-<<<<<<< HEAD:Assets/Source/Enemy/Path/PathWalk.cs
-                if (i != _points.Count - 1)
-=======
                 if (i != _points.Count-1)
->>>>>>> RefactoringPathWalk:Assets/Scripts/Enemy/Path/PathWalk.cs
                 {
                     _currentPoint = _points[i + 1].transform;
                     _speed = _points[i + 1].Speed;
@@ -125,11 +116,7 @@ public class PathWalk : MonoBehaviour, IPause
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-<<<<<<< HEAD:Assets/Source/Enemy/Path/PathWalk.cs
-        if (collision.TryGetComponent(out PathPoint point))
-=======
         if(collision.TryGetComponent(out PathPoint point)) 
->>>>>>> RefactoringPathWalk:Assets/Scripts/Enemy/Path/PathWalk.cs
         {
             if (point == _currentPoint)
                 TakeNextPoint();

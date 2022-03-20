@@ -12,10 +12,10 @@ public class WinnnerMenu : MonoBehaviour
 
     public void Show() 
     {
+        PanelsSwitcher.Switcher.Open(GetComponent<PanelMovement>().Type);
         LevelSettings.Settings.StopTimer();
         LevelSettings.Settings.Pause(out bool isPause);
-        GlobalResources.Resources.AddCoins(LevelSettings.Settings.CoinCount);
-        _animator.Play("Show"); 
+        GlobalResources.Resources.AddCoins(LevelSettings.Settings.CoinCount); 
         _timerText.text = LevelSettings.Settings.TimeText;
         _coinCountText.text = LevelSettings.Settings.CoinCount.ToString();
         for(int i = 0; i < LevelSettings.Settings.Stars.Length; i++)

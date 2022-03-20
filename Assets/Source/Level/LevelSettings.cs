@@ -84,11 +84,7 @@ public class LevelSettings : MonoBehaviour
         SaveLevelEngine.SaveEngine.Save();
     }
 
-<<<<<<< HEAD:Assets/Source/Level/LevelSettings.cs
-    public void StopTimer()
-=======
     public void StopTimer() 
->>>>>>> RefactoringPathWalk:Assets/Scripts/Level/LevelSettings.cs
     {
         StopCoroutine("Timer");
     }
