@@ -6,7 +6,7 @@ public class PathWalk : MonoBehaviour, IPause
 {
 
     [SerializeField] private List<PathPoint> _points;
-    [SerializeField] private Transform _currentPoint;
+    [SerializeField] private PathPoint _currentPoint;
     [SerializeField] private Vector2 _sizeColliderPoint;
 
     [SerializeField] private Rigidbody2D _rigidbody;
@@ -25,19 +25,25 @@ public class PathWalk : MonoBehaviour, IPause
     private void Start()
     {
         Init();
-        _currentPoint = _points[0].transform;
-        _speed = _points[0].Speed;
+        if (_currentPoint == null)
+        {
+            _currentPoint = _points[0];
+            _speed = _points[0].Speed;
+        }
     }
 
     private void Update()
     {
-        if (Vector2.Distance(transform.position, _currentPoint.position) > 0.01f)
-        {
-            Vector2 direction = _currentPoint.position - transform.position;
-            _rigidbody.velocity = direction.normalized * _speed;
-        }
-        else
-            TakeNextPoint();
+        Vector2 direction = _currentPoint.transform.position - transform.position;
+        transform.Translate((direction.normalized * _speed) * Time.deltaTime);
+        //if (Vector2.Distance(transform.position, _currentPoint.position) > 0.01f)
+        //{
+        //    Vector2 direction = _currentPoint.position - transform.position;
+        //    //_rigidbody.velocity = direction.normalized * _speed;
+        //    transform.Translate((direction.normalized * _speed) * Time.deltaTime);
+        //}
+        //else
+        //    TakeNextPoint();
 
         if (_isPause)
             _rigidbody.velocity = Vector2.zero;
@@ -98,16 +104,16 @@ public class PathWalk : MonoBehaviour, IPause
     {
         for (int i = 0; i < _points.Count; i++)
         {
-            if (_points[i].transform == _currentPoint)
-                if (i != _points.Count-1)
+            if (_points[i] == _currentPoint)
+                if (i != _points.Count -1 )
                 {
-                    _currentPoint = _points[i + 1].transform;
+                    _currentPoint = _points[i + 1];
                     _speed = _points[i + 1].Speed;
                     break;
                 }
                 else
                 {
-                    _currentPoint = _points[0].transform;
+                    _currentPoint = _points[0];
                     _speed = _points[0].Speed;
                     break;
                 }
@@ -116,10 +122,12 @@ public class PathWalk : MonoBehaviour, IPause
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out PathPoint point)) 
+        if(collision.TryGetComponent(out PathPoint point))
         {
             if (point == _currentPoint)
+            {
                 TakeNextPoint();
+            }
         }
     }
 

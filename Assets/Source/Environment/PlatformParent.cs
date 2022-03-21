@@ -5,19 +5,22 @@ using UnityEngine;
 public class PlatformParent : MonoBehaviour
 {
 
-    private Transform _target;
+    private Rigidbody2D _playerRigidbody;
 
     private void Update()
     {
-        //if(_target)
-
+        if(_playerRigidbody != null)
+        {
+            //_playerRigidbody.velocity = GetComponent<Rigidbody2D>().velocity;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.TryGetComponent(out PlayerShoot player)) 
+        if(collision.gameObject.TryGetComponent(out PlayerMovement player)) 
         {
             player.transform.parent = transform;
+            _playerRigidbody = player.Rigidbody2D;
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -25,6 +28,7 @@ public class PlatformParent : MonoBehaviour
         if (collision.gameObject.TryGetComponent(out PlayerMovement player))
         {
             player.transform.parent = null;
+            _playerRigidbody = null;
         }
     }
 }

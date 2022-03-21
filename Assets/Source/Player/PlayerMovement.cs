@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour, IPause
     public Joystick Joystick => _joystick;
     [SerializeField] private SpriteRenderer _sprite;
     [SerializeField] private Rigidbody2D _rigidbody;
+    public Rigidbody2D Rigidbody2D => _rigidbody;
     [SerializeField] private ParticleSystem _vfxRun;
 
     private PlayerShoot _shoot;
