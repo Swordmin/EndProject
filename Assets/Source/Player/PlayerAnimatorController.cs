@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class PlayerAnimatorController : MonoBehaviour
+public class PlayerAnimatorController : MonoBehaviour, IPause
 {
 
     private Animator _animator;
@@ -19,6 +19,7 @@ public class PlayerAnimatorController : MonoBehaviour
 
     private void Start()
     {
+        Init();
         _shoot.Shooting += Shoot;
         _health.OnHit.AddListener(Hit);
     }
@@ -27,6 +28,22 @@ public class PlayerAnimatorController : MonoBehaviour
     {
         _animator.SetFloat("Velocity.x", Mathf.Abs(_player.Horizontal));
         _animator.SetBool("IsGround", _player.IsGround);
+    }
+
+
+    public void Init()
+    {
+        LevelSettings.Settings.Pauses.Add(this);
+    }
+
+    public void Pause()
+    {
+        _animator.speed = 0;
+    }
+
+    public void Resume()
+    {
+        _animator.speed = 1;
     }
 
     private void Shoot() 
@@ -47,7 +64,5 @@ public class PlayerAnimatorController : MonoBehaviour
     {
         _animator.SetBool("DamageCooldown", false);
     }
-
-
 
 }

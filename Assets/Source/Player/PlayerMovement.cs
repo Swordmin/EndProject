@@ -71,6 +71,8 @@ public class PlayerMovement : MonoBehaviour, IPause
     {
         Vector2 direction = new Vector2(_horizontal,0);
         _isGround = Physics2D.OverlapCircle(transform.position, 0.05f, _groundMask);
+        if(!_isGround)
+            _rigidbody.drag = 3;
 
         if (Mathf.Abs(_horizontal) > 0f)
         {
@@ -88,14 +90,14 @@ public class PlayerMovement : MonoBehaviour, IPause
             _isGround = false;
             _extraJump = 0;
         }
-        else
-            if(_extraJump < _extraJumpCount)
-            {
-                _rigidbody.velocity = Vector2.up * _jumpHeight;
-                _isGround = false;
-                _extraJump++;
+        else if (_extraJump < _extraJumpCount)
+        {
+            _rigidbody.drag = 3;
+            _rigidbody.velocity = Vector2.up * _jumpHeight;
+            _isGround = false;
+            _extraJump++;
 
-            }
+        }
 
     }
 
@@ -126,6 +128,7 @@ public class PlayerMovement : MonoBehaviour, IPause
         if(collision.tag == "Ground") 
         {
             _extraJump = 0;
+            _rigidbody.drag = 10;
         }
         if (collision.tag == "Bomb")
         {
