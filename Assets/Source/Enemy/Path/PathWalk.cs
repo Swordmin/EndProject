@@ -1,7 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
+public enum WalkType 
+{
+    Transform, 
+    Rigidbody
+
+}
 public class PathWalk : MonoBehaviour, IPause
 {
 
@@ -15,6 +21,11 @@ public class PathWalk : MonoBehaviour, IPause
     [SerializeField] private bool _miror;
     [SerializeField] private bool _isPause;
 
+    [Tooltip("Changed walk system. 'Transform' use transform.Translate. 'Rigidbody' use rigidbody.velocity.")]
+    [SerializeField] private WalkType _type;
+
+    private Vector2 _directionMove;
+    public Vector2 MoveDirectionVelocity => (_directionMove.normalized * _speed) * 1.3f;
 
     private void Awake()
     {
@@ -34,16 +45,11 @@ public class PathWalk : MonoBehaviour, IPause
 
     private void Update()
     {
-        Vector2 direction = _currentPoint.transform.position - transform.position;
-        transform.Translate((direction.normalized * _speed) * Time.deltaTime);
-        //if (Vector2.Distance(transform.position, _currentPoint.position) > 0.01f)
-        //{
-        //    Vector2 direction = _currentPoint.position - transform.position;
-        //    //_rigidbody.velocity = direction.normalized * _speed;
-        //    transform.Translate((direction.normalized * _speed) * Time.deltaTime);
-        //}
-        //else
-        //    TakeNextPoint();
+        _directionMove = _currentPoint.transform.position - transform.position;
+        if(_type == WalkType.Transform)
+            transform.Translate((_directionMove.normalized * _speed) * Time.deltaTime);
+        if (_type == WalkType.Rigidbody)
+            _rigidbody.velocity = _directionMove.normalized * _speed;
 
         if (_isPause)
             _rigidbody.velocity = Vector2.zero;

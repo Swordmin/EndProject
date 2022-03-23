@@ -266,6 +266,7 @@ MonoBehaviour:
   _speed: 0.5
   _miror: 0
   _isPause: 0
+  _type: 0
 --- !u!50 &155385728020069583
 Rigidbody2D:
   serializedVersion: 4
@@ -282,7 +283,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1ec32d89b21b27140a3a47b5f693c56d, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -308,7 +309,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 7793724214504752146}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 94a2d48944da2b34e806bc000a535252, type: 2}
+  m_Material: {fileID: 6200000, guid: 1ec32d89b21b27140a3a47b5f693c56d, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

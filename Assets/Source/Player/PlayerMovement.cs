@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour, IPause
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _extraJumpCount;
     [SerializeField] private float _extraJump;
+    [SerializeField] private Vector2 _doubleVelocity;
     private bool _pause;
 
 
@@ -31,8 +32,6 @@ public class PlayerMovement : MonoBehaviour, IPause
     public bool IsGround => _isGround;
     [SerializeField] private LayerMask _groundMask;
 
-    [Space(20)]
-    Vector2 direction;
 
     private void Awake()
     {
@@ -49,8 +48,6 @@ public class PlayerMovement : MonoBehaviour, IPause
             Debug.LogError("SFS ERROR: Shooting component is not found.");
             return;
         }
-
-        _shoot.Shooting += Shoot;
     }
 
     private void Update()
@@ -64,24 +61,26 @@ public class PlayerMovement : MonoBehaviour, IPause
         if(Input.GetKeyDown(KeyCode.Space))
             Jump();
 
+        GroundChecking();
         Move();
     }
 
-
-    private void Move()
+    #region Pause
+    public void Init()
     {
-        Vector2 direction = new Vector2(_horizontal,0);
-        _isGround = Physics2D.OverlapCircle(transform.position, 0.05f, _groundMask);
-        if(!_isGround)
-            _rigidbody.drag = 3;
-
-        if (Mathf.Abs(_horizontal) > 0f)
-        {
-            _rigidbody.velocity = new Vector2(direction.x * _speed, _rigidbody.velocity.y);
-        }
-        if (_pause)
-            _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
+        LevelSettings.Settings.Pauses.Add(this);
     }
+
+    public void Pause()
+    {
+        _pause = true;
+    }
+
+    public void Resume()
+    {
+        _pause = false;
+    }
+    #endregion
 
     public void Jump() 
     {
@@ -97,7 +96,6 @@ public class PlayerMovement : MonoBehaviour, IPause
             _rigidbody.velocity = Vector2.up * _jumpHeight;
             _isGround = false;
             _extraJump++;
-
         }
 
     }
@@ -124,6 +122,27 @@ public class PlayerMovement : MonoBehaviour, IPause
         _vfxRun.emissionRate = 0;
     }
 
+    public void SetDoubleVelocity(Vector2 _velocity) => _doubleVelocity = _velocity;
+
+    private void Move()
+    {
+        Vector2 direction = new Vector2(_horizontal, 0);
+
+        _rigidbody.velocity = new Vector2(direction.x * _speed, _rigidbody.velocity.y) + _doubleVelocity;
+
+        if (_pause)
+            _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y) + _doubleVelocity;
+    }
+
+    private void GroundChecking() 
+    {
+        _isGround = Physics2D.OverlapCircle(transform.position, 0.05f, _groundMask);
+
+        if (!_isGround)
+            _rigidbody.drag = 3;
+    }
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Ground") 
@@ -135,30 +154,6 @@ public class PlayerMovement : MonoBehaviour, IPause
         {
             collision.GetComponent<Bomb>().Activate();
         }
-    }
-    private void Shoot()
-    {
-        if (!_shoot)
-        {
-            Debug.LogError("SFS ERROR: Shooting component is not found.");
-            return;
-        }
-
-    }
-
-    public void Init()
-    {
-        LevelSettings.Settings.Pauses.Add(this);
-    }
-
-    public void Pause()
-    {
-        _pause = true;
-    }
-
-    public void Resume() 
-    {
-        _pause = false;
     }
 
 }
