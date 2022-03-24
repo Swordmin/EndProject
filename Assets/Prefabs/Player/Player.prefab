@@ -596,6 +596,7 @@ GameObject:
   - component: {fileID: 152652419}
   - component: {fileID: 152652418}
   - component: {fileID: 152652429}
+  - component: {fileID: 43895035253700849}
   m_Layer: 10
   m_Name: Player
   m_TagString: Player
@@ -767,6 +768,7 @@ MonoBehaviour:
   _jumpHeight: 5
   _extraJumpCount: 1
   _extraJump: 0
+  _doubleVelocity: {x: 0, y: 0}
   _isGround: 0
   _groundMask:
     serializedVersion: 2
@@ -829,6 +831,7 @@ MonoBehaviour:
   _weaponLeft: {fileID: 776547122}
   _bullet: {fileID: 7214415297376697491, guid: 48030c8cc1ef13748b9fbe0b9bcf6756, type: 3}
   _bulletInfo: {fileID: 496664473}
+  _directionKick: {x: 0, y: 0}
 --- !u!82 &152652419
 AudioSource:
   m_ObjectHideFlags: 0
@@ -968,6 +971,22 @@ MonoBehaviour:
   _kickForce: 1000
   _cooldown: 3
   _canTakeDamage: 1
+--- !u!114 &43895035253700849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6451550116159201299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdc393360f51eea4d984d5dac12f25ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _color: {r: 1, g: 0, b: 0, a: 1}
+  _text: 
+  _flyingText: {fileID: 4651108610914215319, guid: 2d0601321c106414fba1fda52afaead1, type: 3}
+  _parentFlyingText: {fileID: 6451550116159201302}
 --- !u!1 &6451550116366040107
 GameObject:
   m_ObjectHideFlags: 0
