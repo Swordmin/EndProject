@@ -25,7 +25,7 @@ public class PathWalk : MonoBehaviour, IPause
     [SerializeField] private WalkType _type;
 
     private Vector2 _directionMove;
-    public Vector2 MoveDirectionVelocity => (_directionMove.normalized * _speed) * 1.3f;
+    public Vector2 MoveDirectionVelocity => (_directionMove.normalized * _speed) * 1.25f;
 
     private void Awake()
     {

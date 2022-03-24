@@ -199,27 +199,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6593232519449212549, guid: c18995049148e4b4c9de4f2c90453919, type: 3}
   m_PrefabInstance: {fileID: 102803224}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &10018913 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6451550116159201299, guid: 5cae62eeb9f048346b9208838997c106, type: 3}
-  m_PrefabInstance: {fileID: 1539079516}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &10018914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10018913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc393360f51eea4d984d5dac12f25ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _color: {r: 1, g: 0, b: 0, a: 1}
-  _text: 
-  _flyingText: {fileID: 4651108610914215319, guid: 2d0601321c106414fba1fda52afaead1, type: 3}
-  _parentFlyingText: {fileID: 152652428}
 --- !u!1 &44784217 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8844198933671937841, guid: ce3a0d023688eb442a848eeacf8f4147, type: 3}
@@ -407,7 +386,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6451550116159201306, guid: 5cae62eeb9f048346b9208838997c106, type: 3}
   m_PrefabInstance: {fileID: 1539079516}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10018913}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b553095ca37c4246862dbc24f4a2620, type: 3}
@@ -418,7 +397,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6451550116159201298, guid: 5cae62eeb9f048346b9208838997c106, type: 3}
   m_PrefabInstance: {fileID: 1539079516}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10018913}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4037c2cbbbc0dd846a2679adf3cdf857, type: 3}
@@ -7561,11 +7540,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6451550116159201306, guid: 5cae62eeb9f048346b9208838997c106, type: 3}
       propertyPath: _directionKick.x
-      value: 1000
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6451550116159201306, guid: 5cae62eeb9f048346b9208838997c106, type: 3}
       propertyPath: _directionKick.y
-      value: 800
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6451550116159201306, guid: 5cae62eeb9f048346b9208838997c106, type: 3}
       propertyPath: _cameraShakeIntentsity
@@ -7578,7 +7557,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 152652429, guid: 5cae62eeb9f048346b9208838997c106, type: 3}
   m_PrefabInstance: {fileID: 1539079516}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10018913}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b86cd8ed1b09bc54f843a797cb351946, type: 3}

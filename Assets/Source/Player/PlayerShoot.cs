@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -59,6 +58,7 @@ public class PlayerShoot : MonoBehaviour
                 bullet = Instantiate(_bullet, _weaponLeft.position, Quaternion.identity);
             bullet.Side = !_sprite.flipX;
             bullet.Init(_goalTag, _damage * _readyBullet);
+
             if (_readyBullet == 1)
                 bullet.One = true;
             else
@@ -89,7 +89,7 @@ public class PlayerShoot : MonoBehaviour
 
     public void Kick(Vector2 direction)
     {
-        _rigidbody.AddForce(direction);
+        _rigidbody.AddForce(direction, ForceMode2D.Impulse);
     }
 
     private IEnumerator TickShoot() 
